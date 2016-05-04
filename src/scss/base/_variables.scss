@@ -1,0 +1,41 @@
+// ----------------------------------------------------------------------------
+// Variables
+// ----------------------------------------------------------------------------
+
+
+// Colors
+// -------------------------
+$primary            : #00bfff;
+$white              : #fff;
+$black              : #000;
+
+
+// Type
+// -------------------------
+
+$base-font-size     : 16px;
+$base-line-height   : 1.5;
+$scale              : 1.414;
+$leading            : $base-line-height * 1rem;
+$unit               : $leading;
+$sans-serif         : 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+$serif              : 'Cambria', 'Georgia', 'serif';
+$font-family        : $sans-serif;
+$header-font-family : $sans-serif;
+
+
+// Breakpoints
+// -------------------------
+
+$bp-small           : 480px;
+$bp-medium          : 750px;
+$bp-large           : 1024px;
+
+
+// Defaults
+// -------------------------
+
+$unit               : $leading;
+$base-radius        : 2px;
+$base-time          : .3s;
+$base-ease          : ease;
