@@ -2,9 +2,9 @@
 
 ## Contents
 
-- [Introduction](#Introduction)
+- [Introduction](#intro)
     - [Acknowledgements](#acknowledgements)
-- [Syntax & Formatting](#Syntax-&-Formatting)
+- [Syntax & Formatting](#syntax)
     - [Whitespace & Punctuation](#Whitespace-&-Punctuation)
     - [CSS Ruleset](#CSS-Ruleset)
     - [Property Declaration Order](#Property-&-Declaration Order)
@@ -14,7 +14,7 @@
 - [Comments](#Comments)
 - [Naming Conventions](#Naming Conventions)
     - [Block/Element/Modifier (BEM/OOCSS)](#Block/Element/Modifier-(BEM/OOCSS))
-    - [Variables](#Variables)
+    - [Variables](#variables)
     - [ID Selectors](#ID-Selectors)
     - [Autoprefixer](#Autoprefixer)
     - [JS Hooks](#JS-Hooks)
@@ -23,11 +23,13 @@
 - [Tools](#Tools)
 - [Other](#Other)
 
+<a name="intro"/>
 ## Introduction
 These guidelines are designed to help with the creation of stylesheets that are readable, maintainable, and scalable.
 
 All CSS is written in Sass (SCSS)
 
+<a name="acknowledgments"/>
 ### Acknowledgements
 This guide is a combination of opinion, experience, and a lot of borrowing. Below are articles and resources that have influenced these guidelines.
 - [SASS Guidelines](https://sass-guidelin.es)
@@ -35,6 +37,7 @@ This guide is a combination of opinion, experience, and a lot of borrowing. Belo
 - [codeguide.co](http://codeguide.co)
 - [cssguidelin.es](http://cssguidelin.es)
 
+<a name="syntax"/>
 ## Syntax & Formatting
 
 ### Whitespace & Punctuation
@@ -287,6 +290,7 @@ Example:
 
 As shown in the example above, you do not need to chain elements names (ex: main-nav__item__link). Elements can share a block, but be nested in other elements. Chaining element names is discouraged.
 
+<a name="variables"/>
 ### Variables
 Variable names should be dash-cased. Avoid underscore and CamelCase. Variables that are used within the same file should start with an underscore: (eg: $_variable)
 ```scss
