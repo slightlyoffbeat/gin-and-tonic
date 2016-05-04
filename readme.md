@@ -5,23 +5,23 @@
 - [Introduction](#intro)
     - [Acknowledgements](#acknowledgements)
 - [Syntax & Formatting](#syntax)
-    - [Whitespace & Punctuation](#Whitespace-&-Punctuation)
-    - [CSS Ruleset](#CSS-Ruleset)
-    - [Property Declaration Order](#Property-&-Declaration Order)
-    - [Nesting](#Nesting)
-- [Architecture / Folder Structure](#Architecture-/-Folder-Structure)
-- [Importing Files](#Importing-Files)
-- [Comments](#Comments)
-- [Naming Conventions](#Naming Conventions)
-    - [Block/Element/Modifier (BEM/OOCSS)](#Block/Element/Modifier-(BEM/OOCSS))
+    - [Whitespace & Punctuation](#whitespace)
+    - [CSS Ruleset](#ruleset)
+    - [Property Declaration Order](#order)
+    - [Nesting](#nesting)
+- [Architecture / Folder Structure](#architecture)
+- [Importing Files](#importing)
+- [Comments](#comments)
+- [Naming Conventions](#naming)
+    - [Block/Element/Modifier (BEM/OOCSS)](#bem)
     - [Variables](#variables)
-    - [ID Selectors](#ID-Selectors)
-    - [Autoprefixer](#Autoprefixer)
-    - [JS Hooks](#JS-Hooks)
-    - [State Hooks](#State-Hooks)
-    - [Tracking Hooks](#Tracking-Hooks)
-- [Tools](#Tools)
-- [Other](#Other)
+    - [ID Selectors](#id)
+    - [Autoprefixer](#autoprefixer)
+    - [JS Hooks](#jshooks)
+    - [State Hooks](#statehooks)
+    - [Tracking Hooks](#trackinghooks)
+- [Tools](#tools)
+- [Other](#other)
 
 <a name="intro"/>
 ## Introduction
@@ -40,12 +40,14 @@ This guide is a combination of opinion, experience, and a lot of borrowing. Belo
 <a name="syntax"/>
 ## Syntax & Formatting
 
+<a name="whitespace"/>
 ### Whitespace & Punctuation
 - Use soft tabs with two (2) spaces. No hard tabs.
 - Try to keep lines short. Less than 80 characters is ideal
 - Include line breaks between new elements and styles
 - Use single quotes (') instead of double quotes (")
 
+<a name="ruleset"/>
 ### CSS Ruleset
 (Slightly modified from [cssguidelin.es](http://cssguidelin.es/#anatomy-of-a-ruleset) & [sass-guidelin.es](https://sass-guidelin.es/?ref=producthunt#syntax--formatting)
 
@@ -75,6 +77,7 @@ This guide is a combination of opinion, experience, and a lot of borrowing. Belo
 }
 ```
 
+<a name="order"/>
 ### Property & Declaration Order
 The recommended order for declaractions are as follows:
 1. extend calls (@extend)
@@ -139,6 +142,7 @@ The recommended order for declaractions are as follows:
 
 This guide does not state a preferences for declaration sorting. THis can be left up to the individual (random, alphabetical, type etc)
 
+<a name="nesting"/>
 ### Nesting
 - Avoid selector nesting as much as possible.
 - Avoid using neseting to create clever BEM naming conventions. Simply create a new declaration.
@@ -146,6 +150,7 @@ This guide does not state a preferences for declaration sorting. THis can be lef
 - It is better to create a new class than to nest several layers. This will keep code readable and maintainable.
 - An exception is that you can and should nest pseudo elements, pseudo classes and state hooks
  
+<a name="architecture"/>
 ## Architecture / Folder Structure
 The recommended folder structure is a variation of the The 7-1 Pattern. File partials should have an underscore (_) at the beginning of the file name so that it is obvious that they are partials. 
 ```scss
@@ -189,6 +194,7 @@ scss/
 |- shame.scss               // Crappy CSS/SCSS that should be fixed at a later time
 |- style.scss               // Main scss file that imports everything
 ```
+<a name="importing"/>
 ## Importing Files
 
 ```scss
@@ -206,6 +212,7 @@ Things to note:
 - file extensions and leading underscores should be omitted
 - Declare vendors, then variables, then utilities, then everythig else
 
+<a name="comments"/>
 ## Comments
 Well documented stylesheets are key to keeping everything maintainable and scalable. We should always:
 * Comment liberally.
@@ -244,8 +251,11 @@ EX: (assuming $whitespace = 12px)
 ...
 */
 ```
+
+<a name="naming"/>
 ## Naming Conventions
 
+<a name="bem"/>
 ### Block/Element/Modifier (BEM/OOCSS)
 A combination of BEM and OOCSS is used. To quote the [Airbnb style guide](https://github.com/airbnb/css#oocss-and-bem):
 * It helps create clear, strict relationships between CSS and HTML
@@ -301,12 +311,16 @@ $FontSize: 12px
 //Good:
 $font-size: 12px;
 ```
+
+<a name="id"/>
 ### ID Selectors
 ID selectors are not reusable and should never be necssary. Avoid them.
 
+<a name="autoprefixer"/>
 ### Autoprefixer
 Never write vendor prefixes in your code. Use Autoprefixer when compiling your Sass to handle that for you.
 
+<a name="jshooks"/>
 ### JS Hooks
 Avoid using the same class for both css and JavaScript.
 
@@ -316,6 +330,7 @@ Prefix JavaScript specific classes with ```.js-```
 <button class="button-primary js-purchase">
 ```
 
+<a name="statehooks"/>
 ### State Hooks
 There may often be a need to add and remove a class according to its state. Examples include a mobile menu expanding, a dropdown, an accordion selection and more. State hooks include:
 * ```is-active```
@@ -346,9 +361,12 @@ Which compiles to:
   .color: #000000
 }
 ```
+
+<a name="trackinghooks"/>
 ### Tracking Hooks
 Hooks that are used specifically for tracking, google analytics, tag mangager, etc should be prefixed with ```.tk-```
 
+<a name="tools"/>
 ## Tools
 A SCSS Lint file (scss-lint.yml) is included to help maintain consistency and prevent errors. You will need to install the scss lint gem and then the appropriate package for your text editor. It has been customized to maintain rules such as:
 * property order
@@ -362,5 +380,6 @@ An editor config file (.editorconfig) is included to help maintain consistency b
 * indent style = space
 * ...more
 
+<a name="other"/>
 ## Other
 Shame...shame...shame. Sometimes we need to include a quick fix, or break the rules, or write a hack or two. That's fine. Use the shame.scss file so that you can come back to it and fix it at a later time.
