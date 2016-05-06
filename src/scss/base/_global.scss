@@ -1,0 +1,61 @@
+// ----------------------------------------------------------------------------
+// Global
+// ----------------------------------------------------------------------------
+
+// Reset the box-sizing
+// --------------------
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+// Default Body Styles
+// -------------------
+
+body {
+  background-color: $body-bg;
+}
+
+
+// Images
+// ------
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+// Removes Dotted Border
+// ---------------------
+
+:focus {
+  outline: 0;
+}
+
+
+// Textarea takes on height automatically
+// --------------------------------------
+
+textarea {
+  height: auto;
+  min-height: 50px;
+  border-radius: $base-radius;
+}
+
+
+// Select elements are 100% width by default
+// -----------------------------------------
+
+select {
+  width: 100%;
+  border-radius: $base-radius;
+}

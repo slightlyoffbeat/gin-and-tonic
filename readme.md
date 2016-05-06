@@ -96,7 +96,7 @@ The recommended order for declaractions are as follows:
   padding: 0;
   @extend %property;
   @include container;
-  @bp(medium) {
+  @media (max-width: 600px) {
     display: none;
   }
   .nested {
@@ -134,7 +134,7 @@ The recommended order for declaractions are as follows:
     ...
   }
   
-  @bp(medium) {
+  @media (max-width: 600px) {
     display: none;
   }
 }
@@ -207,10 +207,10 @@ scss/
 @import 'util/whitespace';
 ```
 Things to note:
-- Declare @charset 'utf-8' at the top of the main file because reasons
+- Declare ```@charset 'utf-8'``` at the top of the main file because reasons
 - Provide a short title for the various sections (base, components, etc)
 - file extensions and leading underscores should be omitted
-- Declare vendors, then variables, then utilities, then everythig else
+- Declare variables, then vendors, then utilities, then everything else
 
 <a name="comments"/>
 ## Comments
@@ -340,6 +340,7 @@ There may often be a need to add and remove a class according to its state. Exam
 * ```is-collapsed```
 * ```is-loaded```
 * ```is-loading```
+
 State hooks should always be scoped to the selector they are being applied to. 
 
 For example:

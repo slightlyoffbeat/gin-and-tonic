@@ -2,4 +2,7 @@
 // Import all mixins
 // ----------------------------------------------------------------------------
 
-@import 'mixins/z-index';
+@import 'mixins/z-index',
+        'mixins/math',
+        'mixins/type',
+        'mixins/convert';

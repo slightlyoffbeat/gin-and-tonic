@@ -13,29 +13,54 @@ $black              : #000;
 // Type
 // -------------------------
 
-$base-font-size     : 16px;
+$base-font-size     : 16;
 $base-line-height   : 1.5;
+$base-font-color    : $black;
 $scale              : 1.414;
 $leading            : $base-line-height * 1rem;
 $unit               : $leading;
 $sans-serif         : 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 $serif              : 'Cambria', 'Georgia', 'serif';
-$font-family        : $sans-serif;
+$base-font-family   : $sans-serif;
 $header-font-family : $sans-serif;
+$base-bold-weight   : 600;
+$base-link-color    : $primary;
+$base-link-hover    : darken($primary, 10%);
 
 
 // Breakpoints
 // -------------------------
 
-$bp-small           : 480px;
-$bp-medium          : 750px;
-$bp-large           : 1024px;
+$breakpoints: (
+  xsmall:     450px,
+  small:      750px,
+  medium:     950px,
+  large:      1200px
+);
 
 
 // Defaults
 // -------------------------
 
 $unit               : $leading;
+$half-unit          : $leading / 2;
 $base-radius        : 2px;
 $base-time          : .3s;
 $base-ease          : ease;
+
+
+// Style
+// -------------------------
+$body-bg            : $white;
+
+
+// Z-indeex
+// -------------------------
+
+$z-index: (
+  bury:               -1,
+  content:            10,
+  header:             20,
+  navtrigger:         22,
+  modal:              40,
+);

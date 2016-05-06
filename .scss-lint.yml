@@ -1,4 +1,3 @@
-scss_files: 'src/scss/**/*.scss'
 
 severity: warning
 
@@ -23,6 +22,9 @@ linters:
 
   ExtendDirective:
     enabled: true
+
+  ElsePlacement:
+    enabled: false
 
   IdSelector:
     enabled: true

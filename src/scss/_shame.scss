@@ -1,0 +1,12 @@
+.test {
+  color: $white;
+  background-color: $black;
+  border-radius: 3px;
+  height: 150px;
+  margin-bottom: calc(#{$gutter});
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 600;
+}

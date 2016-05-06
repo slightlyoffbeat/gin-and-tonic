@@ -1,0 +1,198 @@
+// ----------------------------------------------------------------------------
+// Typography
+// ----------------------------------------------------------------------------
+
+// Typeography Resets
+// ------------------
+
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+// Global Type
+// -----------
+
+html, {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-family: $base-font-family;
+  color: $base-font-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Paragraphs
+// ----------
+
+p {
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0 0 $half-unit;
+
+  &.lead {
+    @include typesize(1);
+    font-weight: 300;
+  }
+
+}
+
+
+// Emphasized text
+// ---------------
+
+em,
+i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+
+// Strong text
+// -----------
+
+strong,
+b {
+  font-weight: $base-bold-weight;
+}
+
+
+// Small text
+// ----------
+
+small,
+.small {
+  @include typesize(-1);
+}
+
+
+// Headings
+// --------
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: $base-bold-weight;
+  font-family: $header-font-family;
+  line-height: $base-line-height;
+  margin-bottom: $half-unit;
+  letter-spacing: .5px;
+}
+
+h1,
+.h1 {
+  @include typesize(3);
+  line-height: $leading * 2;
+}
+
+h2,
+.h2 {
+  @include typesize(2);
+  line-height: $leading * 2;
+}
+
+h3,
+.h3 {
+  @include typesize(1);
+  line-height: $leading;
+}
+
+h4,
+.h4 {
+  @include typesize(0);
+  line-height: $leading;
+}
+
+h5,
+.h5 {
+  @include typesize(-1);
+  line-height: $leading;
+}
+
+
+// Links
+// -----
+
+a {
+  color: $base-link-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $base-link-hover;
+  }
+
+  img {
+    border: 0;
+  }
+
+}
+
+// Horizontal Rule
+// ---------------
+
+hr {
+  border-bottom: 1px solid lighten($black, 80%);
+  height: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $half-unit 0 $unit;
+}
+
+
+// Lists
+// ------
+
+$_list-side-margin: 1.25rem !default;
+$_list-line-height: inherit !default;
+
+ul,
+ol,
+dl {
+  margin-bottom: $half-unit;
+  list-style-position: inside;
+  line-height: $_list-line-height;
+}
+
+ul,
+ol {
+  list-style-type: disc;
+  margin-left: $_list-side-margin;
+}
+
+
+
+// Blockquotes
+// -----------
+
+blockquote {
+  @include typesize(1);
+  line-height: $base-line-height;
+  margin: 0 0 $unit;
+  padding: $half-unit $unit;
+  font-weight: 300;
+  border-left: 5px solid lighten($black, 95%);
+}
+

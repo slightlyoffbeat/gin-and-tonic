@@ -1,0 +1,155 @@
+// ----------------------------------------------------------------------------
+// Grid
+// ----------------------------------------------------------------------------
+/**
+The Susy library is used to create a custom grid system.
+
+Github: https://github.com/oddbird/susy
+Documentation: http://susydocs.oddbird.net/en/latest/
+
+Susy is very well documented. If you haven't used it, please read therough
+the docs linked above.
+
+Breakpoints are handeled through a breakpoint mixin that can be found at
+vendor/_breakpoint.scss
+*/
+
+// Susy Setup
+// ----------
+
+$susy: (
+  columns           : 12,
+  global-box-sizing : border-box,
+  container         : auto,
+  gutters           : .2,
+  gutter-position   : split,
+);
+
+// Susy Helpers
+// ------------
+
+$gutter: gutter(6); // = width of gutter.
+
+.break {
+  @include break;
+}
+
+
+// Container
+// ---------
+// calculates container according to the values given in $breakpoints map
+// in scss/base/_variables. Converts to REM.
+
+.container {
+  @include container;
+
+  padding: 0 10px;
+
+  // @include bp(xsmall) {
+  //   width: calc-rem(map-get($breakpoints, xsmall));
+  // }
+
+  @include bp(small) {
+    padding: 0 gutters();
+    width: calc-rem(map-get($breakpoints, small));
+  }
+
+  @include bp(medium) {
+    width: calc-rem(map-get($breakpoints, medium));
+  }
+
+  @include bp(large) {
+    width: calc-rem(map-get($breakpoints, large));
+  }
+
+}
+
+
+// Breakpoint specific column classes
+// ----------------------------------
+
+// columns for x-small+
+// ex: col-xs-8 or col-xs-3
+@for $i from 0 through 12 {
+  .col-xs-#{$i} {
+    @include span(12);
+      @include span($i);
+  }
+}
+
+// columns for small+
+// ex: col-sm-8 or col-sm-3
+@for $i from 0 through 12 {
+  .col-sm-#{$i} {
+    @include span(12);
+
+    @include bp(small) {
+      @include span($i);
+    }
+  }
+}
+
+// columns for medium+
+// ex: col-md-8 or col-md-3
+@for $i from 0 through 12 {
+  .col-md-#{$i} {
+    @include span(12);
+
+    @include bp(medium) {
+      @include span($i);
+    }
+
+  }
+}
+
+// columns for large+
+// ex: col-lg-8 or col-lg-3
+@for $i from 0 through 12 {
+  .col-lg-#{$i} {
+    @include span(12);
+
+    @include bp(large) {
+      @include span($i);
+    }
+
+  }
+}
+
+
+// offset (push) columns for x-small+
+// ex: col-xs-offset-8 or col-xs-offset-3
+@for $i from 0 through 12 {
+  .col-xs-offset-#{$i} {
+    @include push($i);
+  }
+}
+
+// offset (push) columns for small+
+// ex: col-sm-offset-8 or col-sm-offset-3
+@for $i from 0 through 12 {
+  .col-sm-offset-#{$i} {
+    @include bp(small) {
+      @include push($i);
+    }
+  }
+}
+
+// offset (push) columns for medium+
+// ex: col-md-offset-8 or col-md-offset-3
+@for $i from 0 through 12 {
+  .col-md-offset-#{$i} {
+    @include bp(medium) {
+      @include push($i);
+    }
+  }
+}
+
+// offset (push) columns for large+
+// ex: col-lg-offset-8 or col-lg-offset-3
+@for $i from 0 through 12 {
+  .col-lg-offset-#{$i} {
+    @include bp(large) {
+      @include push($i);
+    }
+  }
+}
