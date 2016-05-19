@@ -32,7 +32,7 @@ td {
 // -----------
 
 html, {
-  font-size: $base-font-size;
+  font-size: $base-font-size * 1px;
   line-height: $base-line-height;
   font-family: $base-font-family;
   color: $base-font-color;
@@ -46,7 +46,7 @@ html, {
 p {
   font-size: inherit;
   line-height: inherit;
-  margin: 0 0 $half-unit;
+  margin: 0 0 spacing(.5);
 
   &.lead {
     @include typesize(1);
@@ -95,7 +95,7 @@ h5 {
   font-weight: $base-bold-weight;
   font-family: $header-font-family;
   line-height: $base-line-height;
-  margin-bottom: $half-unit;
+  margin-bottom: spacing(.5);
   letter-spacing: .5px;
 }
 
@@ -158,7 +158,7 @@ hr {
   border-left: 0;
   border-right: 0;
   border-top: 0;
-  margin: $half-unit 0 $unit;
+  margin: spacing(.5) 0 spacing(1);
 }
 
 
@@ -171,7 +171,7 @@ $_list-line-height: inherit !default;
 ul,
 ol,
 dl {
-  margin-bottom: $half-unit;
+  margin-bottom: spacing(.5);
   list-style-position: inside;
   line-height: $_list-line-height;
 }
@@ -190,8 +190,8 @@ ol {
 blockquote {
   @include typesize(1);
   line-height: $base-line-height;
-  margin: 0 0 $unit;
-  padding: $half-unit $unit;
+  margin: 0 0 spacing(1);
+  padding: spacing(.5) spacing(1);
   font-weight: 300;
   border-left: 5px solid lighten($black, 95%);
 }

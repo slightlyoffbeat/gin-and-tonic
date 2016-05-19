@@ -25,7 +25,7 @@ EX: (assuming $whitespace = 12px)
 .py2 == padding-top: 24; padding-bottom: 24px;
 */
 
-$whitespace: $unit;
+$whitespace: spacing(1);
 
 @for $i from 0 through 12 {
   .m#{$i} {

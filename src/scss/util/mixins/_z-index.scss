@@ -7,6 +7,10 @@ This helps keep z-indexes from becoming a clusterf*ck.
 
 usage ex:
 .header { @include z-index(header) }
+
+meant to be used as a mixin, but can also use function:
+
+.header { z-index(header) }
 *******************/
 
 @function z-index($key) {

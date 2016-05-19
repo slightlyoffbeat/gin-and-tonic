@@ -1,19 +1,11 @@
 // ----------------------------------------------------------------------------
-// Import all mixins & functions
+// Import all mixins
 // ----------------------------------------------------------------------------
 
-// Functions
-// ---------
-
-@import 'functions/convert',
-        'functions/math',
-        'functions/spacing';
-
-
-// Mixins
-// ------
-
 @import 'mixins/z-index',
+        'mixins/math',
         'mixins/type',
+        'mixins/convert',
         'mixins/buttons',
-        'mixins/clearfix';
+        'mixins/clearfix',
+        'mixins/spacing';

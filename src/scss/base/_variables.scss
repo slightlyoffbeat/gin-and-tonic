@@ -5,7 +5,7 @@
 
 // Colors
 // -------------------------
-$primary            : #00bfff;
+$primary            : #3399ff;
 $white              : #fff;
 $black              : #000;
 
@@ -18,7 +18,6 @@ $base-line-height   : 1.5;
 $base-font-color    : $black;
 $scale              : 1.414;
 $leading            : $base-line-height * 1rem;
-$unit               : $leading;
 $sans-serif         : 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 $serif              : 'Cambria', 'Georgia', 'serif';
 $base-font-family   : $sans-serif;
@@ -42,8 +41,7 @@ $breakpoints: (
 // Defaults
 // -------------------------
 
-$unit               : $leading;
-$half-unit          : $leading / 2;
+$spacing            : $leading;
 $base-radius        : 2px;
 $base-time          : .3s;
 $base-ease          : ease;

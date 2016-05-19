@@ -24,16 +24,18 @@
 // base
 // -------------------------
 @import 'base/global',
-        'base/type';
+        'base/type',
+        'base/grid';
 
 
 // components
 // -------------------------
+@import 'components/buttons';
 
 
 // layout
 // -------------------------
-@import 'layout/grid';
+
 
 // pages
 // -------------------------

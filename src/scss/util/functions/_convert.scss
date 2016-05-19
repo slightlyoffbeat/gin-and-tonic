@@ -15,6 +15,7 @@
   @return $number;
 }
 
+
 // Calculate REM
 // Takes a pixel unit and returns a REM unit
 @function calc-rem($size) {
@@ -31,6 +32,61 @@
 
   $rem-size-strip: strip-unit($rem-size);
   @return #{$rem-size-strip}rem;
+}
+
+
+// PX to REM or REM to PX (with PX fallback)
+// http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+// Consider PostCSS in future
+// Usage:
+//
+// .class {
+//   @include rem(font-size, 1.6rem);
+//   @include rem(padding, 20px 10px);
+// }
+//
+// Output:
+//
+// .class {
+//   font-size: 16px;  /* Fallback for IE8 */
+//   font-size: 1.6rem;
+//   padding: 20px 10px; /* Fallback for IE8 */
+//   padding: 2rem 1rem;
+// }
+
+@mixin rem($property, $values) {
+  $px : ();
+  $rem: ();
+
+  @each $value in $values {
+
+    @if $value == 0 or $value == auto {
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value);
+      $val: strip-unit($value);
+
+      @if $unit == 'px' {
+        $px : append($px, $value);
+        $rem: append($rem, ($val / $base-font-size + rem));
+      }
+
+      @if $unit == 'rem' {
+        $px : append($px, ($val * $base-font-size + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {
+    #{$property}: $px;
+  } @else {
+    #{$property}: $px;
+    #{$property}: $rem;
+  }
 }
 
 
