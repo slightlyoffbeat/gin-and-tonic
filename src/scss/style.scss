@@ -43,5 +43,12 @@
 
 // Shaaaammmeee
 // -------------------------
-
 @import 'shame';
+
+
+// Docs
+//--------------------------
+// For KSS-style documentation.
+// Only need separate file if documentation feels too long
+@import 'docs/buttons',
+        'docs/grid';

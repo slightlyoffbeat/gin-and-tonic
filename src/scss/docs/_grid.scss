@@ -1,0 +1,78 @@
+// ----------------------------------------------------------------------------
+// Grid/Layouts Docs
+// ----------------------------------------------------------------------------
+
+/*
+Layout
+
+The Susy library is used to create a custom grid system.
+
+[Susy Github](https://github.com/oddbird/susy)
+
+[Susy Documentation](http://susydocs.oddbird.net/en/latest/)
+
+Susy is very well documented. If you haven't used it, please read through
+the docs linked above.
+
+Breakpoints are handeled through a breakpoint mixin that can be found at
+vendor/_breakpoint.scss
+
+Styleguide 2.0
+*/
+
+/*
+Container
+
+Center your content by using <code>.container</code>
+
+```
+<div class="container">
+  <!-- content here -->
+</div>
+```
+
+Styleguide 2.1
+*/
+
+/*
+Grid
+
+BitStrap uses a 12 column grid with 20% split gutters. Default settings are
+similar to Bootstrap's grid, except much more flexible.
+Example is below. Check Susy's [documentation](http://susydocs.oddbird.net/en/latest/) for
+more advanced usage.
+
+```
+.sidebar {
+  @include span(3);
+}
+
+.main {
+  @include span(9);
+}
+```
+
+<div class="col-sm-3 test">Sidebar</div>
+<div class="col-sm-9 test">Main</div>
+
+Styleguide 2.2
+*/
+
+/*
+Column Classes
+
+It is encouraged to write semantically, and include column layout semantically
+(as seen above). If column classes are needed however, you can use the same
+column classes as Bootstrap.
+
+For example, you can use <code>.col-md-4</code> to create a 33% column.
+
+You can also offset with <code>.col-md-push-2</code>
+
+[Read more here](http://getbootstrap.com/css/#grid)
+
+<div class="col-sm-3 test">.col-sm-3</div>
+<div class="col-sm-9 test">.col-sm-9</div>
+
+Styleguide 2.3
+*/

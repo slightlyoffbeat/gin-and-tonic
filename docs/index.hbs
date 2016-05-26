@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{options.title}}</title>
+
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="css/bitstrap.css">
+  {{{styles}}}
+</head>
+<body id="kss-node">
+  <header class="bs-header">
+    <div class="bs-container">
+      <div class="col-sm-12">
+        <h3 class="bs-header__logo">BitStrap</h3>
+
+        <ul class="bs-nav">
+          <li class="bs-nav__item">
+            <a class="bs-nav__link" target="_blank" href="https://github.com/bittorrent/BitStrap/blob/master/css-style-guide.md">CSS Styleguide</a>
+          </li>
+          <li class="bs-nav__item">
+            <a class="bs-nav__link" target="_blank" href="http://www.github.com/bittorrent/BitStrap">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="bs-main">
+    <div class="bs-container">
+
+      <div class="bs-sidebar">
+        <ul class="bs-menu">
+          <li class="bs-menu__item">
+            <a class="bs-menu__link" href="./">Overview</a>
+          </li>
+        {{#each menu}}
+          <li class="bs-menu__item {{#if isActive}}is-active{{/if}}">
+            <a class="bs-menu__link {{#if isActive}}is-active{{/if}}" href="section-{{referenceURI}}.html">{{header}}</a>
+          </li>
+        {{/each}}
+        </ul>
+      </div>
+
+      <div class="bs-content">
+      {{#if homepage}}
+        <div class="bs-section--depth-0">
+          {{{homepage}}}
+        </div>
+      {{else}}
+        {{#each sections}}
+          <{{#if @first}}div{{else}}section{{/if}} class="bs-section bs-section--depth-{{depth}}">
+            <div class="bs-style">
+              <h{{depth}} class="bs-title bs-title--level-{{depth}}">
+                <a class="bs-title__link" href="#bsref-{{referenceURI}}">
+                  {{header}}
+                </a>
+              </h{{depth}}>
+
+              {{#if description}}
+              <div class="kss-description">
+                {{{description}}}
+              </div>
+              {{/if}}
+
+            </div>
+          {{#if example}}
+            <div class="bs-example">
+              <div class="bs-example__heading">
+                Example:
+              </div>
+              <div class="bs-example__display">
+                {{{example}}}
+              </div>
+              <div class="bs-example__code">
+                <pre class="prettyprint lang-html"><code data-language="html">{{markup}}</code></pre>
+              </div>
+            </div>
+          {{/if}}
+          </{{#if @first}}div{{else}}section{{/if}}>
+
+        {{/each}}
+      {{/if}}
+
+    </div>
+  </div>
+
+
+
+
+  <!-- SCRIPTS -->
+  <script src="js/kss.js"></script>
+  <script src="js/scrollspy.js"></script>
+  <script src="js/prettify.js"></script>
+  <script>
+    prettyPrint();
+    var spy = new ScrollSpy('#kss-node', {
+      nav: '.kss-nav__menu-child > li > a',
+      className: 'is-in-viewport'
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+// ----------------------------------------------------------------------------
+// BitStrap CSS
+// ----------------------------------------------------------------------------
+//
+// Used specifically for the generated styleguide
+
+// Imports
+// -------
+@import '../../../src/scss/style';
+@import 'prettyprint';
+
+
+.bs-container {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Header
+.bs-header {
+  height: 80px;
+  background-color: #1a1a1a;
+}
+
+
+.bs-header__logo {
+  float: left;
+  color: #fff;
+  line-height: 80px;
+}
+
+
+.bs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.bs-nav__item {
+  display: inline-block;
+}
+
+.bs-nav__link {
+  color: $white;
+  line-height: 80px;
+  font-weight: 700;
+  padding-left: 12px;
+  transition: color $base-time $base-ease;
+
+  &:hover {
+    color: darken($white, 20%);
+  }
+}
+
+
+.bs-main {
+  padding-top: 32px;
+}
+
+// Sidebar
+.bs-sidebar {
+  //background-color: red;
+  @include span(3);
+  min-height: 400px;
+  padding-right: 20px;
+}
+
+.bs-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+}
+
+.bs-menu__item {
+  position: relative;
+  display: block;
+  text-shadow: 0 1px 0 #fff;
+  border-bottom: 1px solid #eee;
+  transition: all $base-time $base-ease;
+
+  &.is-active {
+    cursor: default;
+  }
+
+  &.is-active::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    content: '';
+    background-color: #1a1a1a;
+  }
+
+  &:hover {
+    background-color: #e6e6e6;
+  }
+
+  &.is-active:hover {
+    background-color: $white;
+  }
+
+}
+
+.bs-menu__link {
+  color: $black;
+  display: block;
+  padding: 8px 10px;
+
+  &.is-active {
+    cursor: default;
+  }
+
+  &:hover {
+    color: $black;
+  }
+}
+
+.bs-menu__item:first-child {
+  border-top: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.bs-menu__item:last-child {
+  border-bottom: 0;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+// content Section
+.bs-content {
+  //background-color: yellow;
+  @include span(9);
+  min-height: 400px;
+}
+
+.bs-section {
+  margin-bottom: 32px;
+}
+
+.bs-title {
+  border-bottom: 1px solid#eee;
+  padding-bottom: 8px;
+}
+
+.bs-title--level-1 {
+  @extend .h2;
+}
+
+.bs-title--level-2 {
+  @extend .h3;
+}
+
+.bs-title__link {
+  color: $black;
+  transition: color $base-time $base-ease;
+
+  &:hover {
+    color: lighten($black, 20%);
+  }
+}
+
+.kss-description {
+  @extend .clearfix;
+}
+
+.bs-example {
+
+}
+
+.bs-example__heading {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background-color: #1a1a1a;
+  font-weight: bold;
+  color: white;
+}
+
+.bs-example__display {
+  padding: 10px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+
+}
+
+.bs-example__code pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  //line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+pre {
+  background-color: #f7f7f7;
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+code {
+  padding: 0;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  margin: 0;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}

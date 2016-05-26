@@ -1,5 +1,5 @@
 {
-  "name": "Gin & Tonic",
+  "name": "gin-and-tonic",
   "version": "1.0.0",
   "description": "Boilerplate",
   "main": "gulpfile.js",
@@ -17,6 +17,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.1",
     "gulp-clean-css": "^2.0.6",
+    "gulp-exec": "^2.1.2",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",

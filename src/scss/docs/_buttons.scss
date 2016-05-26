@@ -1,0 +1,75 @@
+// ----------------------------------------------------------------------------
+// Buttons Docs
+// ----------------------------------------------------------------------------
+
+/*
+Buttons
+
+This is a system for easily creating buttons, and spinning up new button
+styles.
+
+Styleguide 4
+*/
+
+/*
+Primary Buttons
+
+Markup:
+<button type="button" class="button button--primary">Primary</button>
+<button type="button" class="button button--secondary">Secondary</button>
+
+Styleguide 4.1
+*/
+
+/*
+Button Types
+
+Markup:
+<a class="button button--primary" href="#" role="button">Link</a>
+<button class="button button--primary" type="submit">Button</button>
+<input class="button button--primary" type="button" value="Input">
+<input class="button button--primary" type="submit" value="Submit">
+
+Styleguide 4.2
+*/
+
+/*
+Ghost Buttons
+
+Markup:
+<button type="button" class="button button-outline--primary">Primary</button>
+<button type="button" class="button button-outline--secondary">Secondary</button>
+
+Styleguide 4.3
+*/
+
+/*
+Large Buttons
+
+Markup:
+<button type="button" class="button button--primary button--large">Large button</button>
+<button type="button" class="button button--secondary button--large">Large button</button>
+
+Styleguide 4.4
+*/
+
+/*
+Small Buttons
+
+Markup:
+<button type="button" class="button button--primary button--small">Small button</button>
+<button type="button" class="button button--secondary button--small">Small button</button>
+
+Styleguide 4.5
+*/
+
+/*
+Block Buttons
+
+Markup:
+<button type="button" class="button button--primary button--large button--block">Block level button</button>
+<button type="button" class="button button--secondary button--large button--block">Block level button</button>
+
+Styleguide 4.6
+
+*/

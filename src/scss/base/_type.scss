@@ -2,6 +2,26 @@
 // Typography
 // ----------------------------------------------------------------------------
 
+/*
+Type
+
+Typography uses a modular scale that is set in the _variables.scss file. You can
+set the typesize by using the mixin: <code>@include typesize()</code>. For example:
+
+```
+p {
+  @include typesize(1)
+}
+```
+
+This will set <code>p</code> to the base font size. If you changed the number to
+"2" then it would be the next size according to the modular scale set in the variables
+file.
+
+Styleguide 3.0
+*/
+
+
 // Typeography Resets
 // ------------------
 
@@ -40,6 +60,25 @@ html, {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/*
+Body Text
+
+Markup:
+<p>Leggings photo booth try-hard, migas tousled twee pork belly direct trade truffaut. Skateboard humblebrag offal umami, ugh organic kickstarter hella etsy. Kitsch organic truffaut 8-bit marfa freegan. Pork belly locavore tilde pabst post-ironic tattooed. VHS irony occupy wolf, sartorial cold-pressed vegan. Farm-to-table irony tattooed taxidermy twee, readymade marfa viral ugh lomo celiac helvetica hella. Roof party echo park cliche, farm-to-table pitchfork next level blue bottle shabby chic aesthetic waistcoat sartorial meditation authentic migas semiotics.</p>
+
+Styleguide 3.2
+*/
+
+/*
+Lead Text
+
+Markup:
+<p class="lead">Leggings photo booth try-hard, migas tousled twee pork belly direct trade truffaut.</p>
+
+Styleguide 3.3
+*/
+
 // Paragraphs
 // ----------
 
@@ -55,6 +94,15 @@ p {
 
 }
 
+/*
+Inline Text Elements
+
+Markup:
+<p><strong>Strong Text</strong></p>
+<p><em>Italic Text</em></p>
+
+Styleguide 3.7
+*/
 
 // Emphasized text
 // ---------------
@@ -74,6 +122,14 @@ b {
   font-weight: $base-bold-weight;
 }
 
+/*
+Small Text
+
+Markup:
+<p class="small">Leggings photo booth try-hard, migas tousled twee pork belly direct trade truffaut.</p>
+
+Styleguide 3.4
+*/
 
 // Small text
 // ----------
@@ -83,6 +139,19 @@ small,
   @include typesize(-1);
 }
 
+
+/*
+Headers
+
+Markup:
+<h1>h1 Heading</h1>
+<h2>h2 Heading</h2>
+<h3>h3 Heading</h3>
+<h4>h4 Heading</h4>
+<h5>h5 Heading</h5>
+
+Styleguide 3.1
+*/
 
 // Headings
 // --------
@@ -149,6 +218,15 @@ a {
 
 }
 
+/*
+Horizontal Line
+
+Markup:
+<hr>
+
+Styleguide 3.7
+*/
+
 // Horizontal Rule
 // ---------------
 
@@ -161,6 +239,25 @@ hr {
   margin: spacing(.5) 0 spacing(1);
 }
 
+/*
+Lists
+
+Markup:
+<p>unordered list</p>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+<p>ordered list</p>
+<ol>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ol>
+
+Styleguide 3.8
+*/
 
 // Lists
 // ------
@@ -182,7 +279,14 @@ ol {
   margin-left: $_list-side-margin;
 }
 
+/*
+Blockquotes
 
+Markup:
+<blockquote>Leggings photo booth try-hard, migas tousled twee pork belly direct trade truffaut.</blockquote>
+
+Styleguide 3.5
+*/
 
 // Blockquotes
 // -----------
