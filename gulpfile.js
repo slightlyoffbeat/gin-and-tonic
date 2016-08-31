@@ -1,25 +1,26 @@
+/* eslint-disable no-multi-spaces, key-spacing, import/no-extraneous-dependencies */
+
 // ----------------------------------------------------------------------------------------
 // Plugins
 // ----------------------------------------------------------------------------------------
 
-var gulp         = require('gulp');
-var sass         = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps   = require('gulp-sourcemaps');
-var browserSync  = require('browser-sync');
-var cleancss     = require('gulp-clean-css');
-var plumber      = require('gulp-plumber');
-var rename       = require('gulp-rename');
-var clean        = require('gulp-clean');
-var gutil        = require('gulp-util');
-var browserify   = require('browserify');
-var source       = require('vinyl-source-stream');
-var babelify     = require('babelify');
-var watchify     = require('watchify');
-var sourcemaps   = require('gulp-sourcemaps');
-var uglify       = require('gulp-uglify');
-var buffer       = require('vinyl-buffer');
-var flatten      = require('gulp-flatten');
+const gulp         = require('gulp');
+const sass         = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps   = require('gulp-sourcemaps');
+const browserSync  = require('browser-sync');
+const cleancss     = require('gulp-clean-css');
+const plumber      = require('gulp-plumber');
+const rename       = require('gulp-rename');
+const clean        = require('gulp-clean');
+const gutil        = require('gulp-util');
+const browserify   = require('browserify');
+const source       = require('vinyl-source-stream');
+const babelify     = require('babelify');
+const watchify     = require('watchify');
+const uglify       = require('gulp-uglify');
+const buffer       = require('vinyl-buffer');
+const flatten      = require('gulp-flatten');
 
 
 // ----------------------------------------------------------------------------------------
@@ -27,7 +28,7 @@ var flatten      = require('gulp-flatten');
 // ----------------------------------------------------------------------------------------
 
 
-var src = {
+const src = {
   sass     : 'src/scss/**/*.scss',
   top      : 'src/*',
   html     : 'src/*.html',
@@ -38,7 +39,7 @@ var src = {
   vendorjs : 'dev/js/vendor/*.js',
 };
 
-var dist = {
+const dist = {
   css      : 'dist/css',
   top      : 'dist',
   img      : 'dist/img',
@@ -57,51 +58,30 @@ var dist = {
 
 // Task: Sass
 // sourcemaps, compile, minify, rename, move to dist
-gulp.task('sass', function() {
-  return gulp.src(src.sass)
+gulp.task('sass', () => {
+  gulp.src(src.sass)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cleancss())
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(dist.css))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 // Task: HTML
 // move html files from src to dist
-gulp.task('html', function() {
-  return gulp.src(src.html)
+gulp.task('html', () => {
+  gulp.src(src.html)
     .pipe(plumber())
     .pipe(gulp.dest(dist.html))
-    .pipe(browserSync.reload({stream: true}))
+    .pipe(browserSync.reload({ stream: true }))
     .on('error', gutil.log);
 });
 
 
-// Task: Browserify + Watchify
-// Browserify will watch the dev.js file.
-// Babel is used to allow for es2015, and specifically ES6 Modules.
-gulp.task('watchify', function () {
-
-  var args = {
-    entries: [src.mainjs],
-    debug: true,
-    cache: {},
-    packageCache: {},
-  };
-
-  var bundler = watchify(browserify(src.mainjs, args).transform(babelify, {presets: ["es2015"]}));
-  bundle_js(bundler)
-
-  bundler.on('update', function () {
-    bundle_js(bundler)
-  })
-})
-
-
-function bundle_js(bundler) {
+function bundleJs(bundler) {
   return bundler.bundle()
     .pipe(source(src.mainjs))
     .pipe(buffer())
@@ -111,36 +91,59 @@ function bundle_js(bundler) {
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist.mainjs))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.reload({ stream:true }));
 }
 
-// Task: Browserify without watchify
-gulp.task('browserify', function () {
-  var bundler = browserify(src.mainjs, { debug: true }).transform(babelify, {presets: ["es2015"]})
+// Task: Browserify + Watchify
+// Browserify will watch the dev.js file.
+// Babel is used to allow for es2015, and specifically ES6 Modules.
+gulp.task('watchify', () => {
+  const args = {
+    entries: [src.mainjs],
+    debug: true,
+    cache: {},
+    packageCache: {},
+  };
 
-  return bundle_js(bundler)
-})
+  const bundler = watchify(browserify(src.mainjs, args)
+    .transform(babelify, { presets: ['es2015'] }));
+
+  bundleJs(bundler);
+
+  bundler.on('update', () => {
+    bundleJs(bundler);
+  });
+});
+
+
+// Task: Browserify without watchify
+gulp.task('browserify', () => {
+  const bundler = browserify(src.mainjs, { debug: true })
+    .transform(babelify, { presets: ['es2015'] });
+
+  return bundleJs(bundler);
+});
 
 // Browserify without sourcemaps (or watchify)
-gulp.task('browserify-prod', function () {
-  var bundler = browserify(src.mainjs).transform(babelify, {presets: ["es2015"]})
+gulp.task('browserify-prod', () => {
+  const bundler = browserify(src.mainjs).transform(babelify, { presets: ['es2015'] });
 
   return bundler.bundle()
     .pipe(source(src.mainjs))
     .pipe(buffer())
     .pipe(rename('bundle.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(dist.mainjs))
-})
+    .pipe(gulp.dest(dist.mainjs));
+});
 
 // Task: Migrate Files
-gulp.task('migrate', function() {
-  gulp.src(src.top + '.{txt,ico,html,png}')
+gulp.task('migrate', () => {
+  gulp.src('${src.top} .{txt,ico,html,png}')
     .pipe(plumber())
     .pipe(gulp.dest(dist.top));
 
   // Grab fonts
-  gulp.src(src.fonts + '.{eot,svg,tff,woff,woff2}')
+  gulp.src('${src.fonts} .{eot,svg,tff,woff,woff2}')
     .pipe(plumber())
     .pipe(flatten())
     .pipe(gulp.dest(dist.fonts));
@@ -154,11 +157,10 @@ gulp.task('migrate', function() {
   gulp.src(src.vendorjs)
     .pipe(plumber())
     .pipe(gulp.dest(dist.vendorjs));
-
 });
 
 // Task: Watch
-gulp.task('watch', ['watchify', 'browserSync', 'sass', 'html',], function() {
+gulp.task('watch', ['watchify', 'browserSync', 'sass', 'html'], () => {
   gulp.watch(src.sass, ['sass']);
   gulp.watch(src.html, ['html']);
   gulp.watch(src.img, ['migrate']);
@@ -166,13 +168,13 @@ gulp.task('watch', ['watchify', 'browserSync', 'sass', 'html',], function() {
 
 // Task: Clean
 // Delete all files in the dist folder
-gulp.task('clean', function () {
-  return gulp.src(dist.top + '/*', {read: false})
+gulp.task('clean', () => {
+  gulp.src('${dist.top} /*', { read: false })
     .pipe(clean());
 });
 
 // Task: BrowserSync
-gulp.task('browserSync', function() {
+gulp.task('browserSync', () => {
   browserSync({
     server: {
       baseDir: './dist',
@@ -180,12 +182,11 @@ gulp.task('browserSync', function() {
     notify: {
       styles: {
         top: 'auto',
-        bottom: '0'
-      }
-    }
-  })
+        bottom: '0',
+      },
+    },
+  });
 });
 
-
 // Task: Default (launch server and watch files for changes)
-gulp.task('default', ['migrate', 'watch'], function(){});
+gulp.task('default', ['migrate', 'watch'], () => {});
