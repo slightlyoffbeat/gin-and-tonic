@@ -1,5 +1,6 @@
 /* Packages */
 node_modules
+.DS_Store
 dist/
 .vs/
 *.sln

@@ -138,12 +138,12 @@ gulp.task('browserify-prod', () => {
 
 // Task: Migrate Files
 gulp.task('migrate', () => {
-  gulp.src('${src.top} .{txt,ico,html,png}')
+  gulp.src(`${src.top} .{txt,ico,html,png}`)
     .pipe(plumber())
     .pipe(gulp.dest(dist.top));
 
   // Grab fonts
-  gulp.src('${src.fonts} .{eot,svg,tff,woff,woff2}')
+  gulp.src(`${src.fonts} .{eot,svg,tff,woff,woff2}`)
     .pipe(plumber())
     .pipe(flatten())
     .pipe(gulp.dest(dist.fonts));
@@ -169,7 +169,7 @@ gulp.task('watch', ['watchify', 'browserSync', 'sass', 'html'], () => {
 // Task: Clean
 // Delete all files in the dist folder
 gulp.task('clean', () => {
-  gulp.src('${dist.top} /*', { read: false })
+  gulp.src(`${dist.top} /*`, { read: false })
     .pipe(clean());
 });
 
