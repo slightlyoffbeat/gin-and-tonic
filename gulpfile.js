@@ -36,7 +36,7 @@ const src = {
   js       : 'src/js/**/*',
   fonts    : 'src/fonts/**/*',
   mainjs   : 'src/js/main.js',
-  vendorjs : 'dev/js/vendor/*.js',
+  vendorjs : 'src/js/vendor/*.js',
 };
 
 const dist = {
@@ -47,7 +47,7 @@ const dist = {
   js       : 'dist/js',
   html     : 'dist',
   mainjs   : 'dist/js',
-  vendorjs : 'prod/js/vendor',
+  vendorjs : 'dist/js/vendor',
 };
 
 
