@@ -24,12 +24,14 @@
 - [Other](#other)
 
 <a name="intro"/>
+
 ## Introduction
 These guidelines are designed to help with the creation of stylesheets that are readable, maintainable, and scalable.
 
 All CSS is written in Sass (SCSS)
 
 <a name="acknowledgments"/>
+
 ### Acknowledgements
 This guide is a combination of opinion, experience, and a lot of borrowing. Below are articles and resources that have influenced these guidelines.
 - [SASS Guidelines](https://sass-guidelin.es)
@@ -38,6 +40,7 @@ This guide is a combination of opinion, experience, and a lot of borrowing. Belo
 - [cssguidelin.es](http://cssguidelin.es)
 
 <a name="syntax"/>
+
 ## Syntax & Formatting
 
 <a name="whitespace"/>
@@ -48,6 +51,7 @@ This guide is a combination of opinion, experience, and a lot of borrowing. Belo
 - Use single quotes (') instead of double quotes (")
 
 <a name="ruleset"/>
+
 ### CSS Ruleset
 (Slightly modified from [cssguidelin.es](http://cssguidelin.es/#anatomy-of-a-ruleset) & [sass-guidelin.es](https://sass-guidelin.es/?ref=producthunt#syntax--formatting)
 
@@ -78,6 +82,7 @@ This guide is a combination of opinion, experience, and a lot of borrowing. Belo
 ```
 
 <a name="order"/>
+
 ### Property & Declaration Order
 The recommended order for declaractions are as follows:
 1. extend calls (@extend)
@@ -143,6 +148,7 @@ The recommended order for declaractions are as follows:
 This guide does not state a preferences for declaration sorting. THis can be left up to the individual (random, alphabetical, type etc)
 
 <a name="nesting"/>
+
 ### Nesting
 - Avoid selector nesting as much as possible.
 - Avoid using neseting to create clever BEM naming conventions. Simply create a new declaration.
@@ -151,6 +157,7 @@ This guide does not state a preferences for declaration sorting. THis can be lef
 - An exception is that you can and should nest pseudo elements, pseudo classes and state hooks
  
 <a name="architecture"/>
+
 ## Architecture / Folder Structure
 The recommended folder structure is a variation of the The 7-1 Pattern. File partials should have an underscore (_) at the beginning of the file name so that it is obvious that they are partials. 
 ```scss
@@ -195,6 +202,7 @@ scss/
 |- style.scss               // Main scss file that imports everything
 ```
 <a name="importing"/>
+
 ## Importing Files
 
 ```scss
@@ -213,6 +221,7 @@ Things to note:
 - Declare variables, then vendors, then utilities, then everything else
 
 <a name="comments"/>
+
 ## Comments
 Well documented stylesheets are key to keeping everything maintainable and scalable. We should always:
 * Comment liberally.
@@ -253,9 +262,11 @@ EX: (assuming $whitespace = 12px)
 ```
 
 <a name="naming"/>
+
 ## Naming Conventions
 
 <a name="bem"/>
+
 ### Block/Element/Modifier (BEM/OOCSS)
 A combination of BEM and OOCSS is used. To quote the [Airbnb style guide](https://github.com/airbnb/css#oocss-and-bem):
 * It helps create clear, strict relationships between CSS and HTML
@@ -301,6 +312,7 @@ Example:
 As shown in the example above, you do not need to chain elements names (ex: main-nav__item__link). Elements can share a block, but be nested in other elements. Chaining element names is discouraged.
 
 <a name="variables"/>
+
 ### Variables
 Variable names should be dash-cased. Avoid underscore and CamelCase. Variables that are used within the same file should start with an underscore: (eg: $_variable)
 ```scss
@@ -313,14 +325,17 @@ $font-size: 12px;
 ```
 
 <a name="id"/>
+
 ### ID Selectors
 ID selectors are not reusable and should never be necssary. Avoid them.
 
 <a name="autoprefixer"/>
+
 ### Autoprefixer
 Never write vendor prefixes in your code. Use Autoprefixer when compiling your Sass to handle that for you.
 
 <a name="jshooks"/>
+
 ### JS Hooks
 Avoid using the same class for both css and JavaScript.
 
@@ -331,6 +346,7 @@ Prefix JavaScript specific classes with ```.js-```
 ```
 
 <a name="statehooks"/>
+
 ### State Hooks
 There may often be a need to add and remove a class according to its state. Examples include a mobile menu expanding, a dropdown, an accordion selection and more. State hooks include:
 * ```is-active```
@@ -364,10 +380,12 @@ Which compiles to:
 ```
 
 <a name="trackinghooks"/>
+
 ### Tracking Hooks
 Hooks that are used specifically for tracking, google analytics, tag mangager, etc should be prefixed with ```.tk-```
 
 <a name="tools"/>
+
 ## Tools
 A SCSS Lint file (scss-lint.yml) is included to help maintain consistency and prevent errors. You will need to install the scss lint gem and then the appropriate package for your text editor. It has been customized to maintain rules such as:
 * property order
