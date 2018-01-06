@@ -306,7 +306,7 @@ Example:
 
 .main-nav { ... }         // block
 .main-nav__item { ... }   // element
-.main-nav__link { ... }   // modifier
+.main-nav__link { ... }   // element
 ```
 
 As shown in the example above, you do not need to chain elements names (ex: main-nav__item__link). Elements can share a block, but be nested in other elements. Chaining element names is discouraged.
